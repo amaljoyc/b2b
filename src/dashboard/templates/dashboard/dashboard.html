@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Home{% endblock %}
+
+{% block navbar-left %}
+{% include "_navbar.html" with active_link="home" %}
+{% endblock %}
+
+{% block container %}
+
+<div class="container profile-head">
+    <div class="row">
+        <div class="col-sm-20">
+            <form action="#" method="GET">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon" id="basic-addon1">SERVICES</span>
+                            <input type="text" class="form-control" placeholder="What are you looking for..."
+                                   id="txtSearch"/>
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container profile-body">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="list-group">
+                <a class="list-group-item text-center active" data-remote="true" href="#" id="categoria_0">
+                    Categories
+                </a>
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_1" style="padding-left: 25px;">
+                    <span class="fa fa-cutlery fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Accouting & Taxation</span>
+                </a>
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_2" style="padding-left: 25px;">
+                    <span class="fa fa-automobile fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Audit</span>
+                </a>
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_3" style="padding-left: 25px;">
+                    <span class="fa fa-female fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Real Estate</span>
+                </a>
+
+                <a class="list-group-item" data-remote="true" href="#sub_categoria_4" id="categoria_4"
+                   data-toggle="collapse" data-parent="#sub_categoria_4" style="padding-left: 25px;">
+                    <span class="fa fa-shopping-cart fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Construction</span>
+                    <span class="menu-ico-collapse"><i class="fa fa-chevron-down"></i></span>
+                </a>
+                <div class="collapse list-group-submenu" id="sub_categoria_4">
+                    <a href="#" class="list-group-item sub-item" data-parent="#sub_categoria_4"
+                       style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Architecture Design</a>
+                    <a href="#" class="list-group-item sub-item" data-parent="#sub_categoria_4"
+                       style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Structural Engineering</a>
+                </div>
+
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_5" style="padding-left: 25px;">
+                    <span class="fa fa-bomb fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Finance</span>
+                </a>
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_6" style="padding-left: 25px;">
+                    <span class="fa fa-graduation-cap fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Health & Social</span>
+                </a>
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_7" style="padding-left: 25px;">
+                    <span class="fa fa-gamepad fa-lg  fa-fw"></span>
+                    <span style="margin-left: 25px;">Transport</span>
+                </a>
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_8" style="padding-left: 25px;">
+                    <span class="fa fa-beer fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Communication</span>
+                </a>
+
+                <a class="list-group-item" data-remote="true" href="#sub_categoria_9" id="categoria_9"
+                   data-toggle="collapse" data-parent="#sub_categoria_9" style="padding-left: 25px;">
+                    <span class="fa fa-heart fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Information Technology</span>
+                    <span class="menu-ico-collapse"><i class="fa fa-chevron-down"></i></span>
+                </a>
+                <div class="collapse list-group-submenu" id="sub_categoria_9">
+                    <a href="#" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_9"
+                       style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Website Design</a>
+                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_9"
+                       style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Logo Design</a>
+                    <a href="#" class="list-group-item sub-item" data-parent="#sub_categoria_9"
+                       style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Android Apps</a>
+                    <a href="#" class="list-group-item sub-item" data-parent="#sub_categoria_9"
+                       style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Iphone Apps</a>
+                </div>
+
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_10" style="padding-left: 25px;">
+                    <span class="fa fa-lock fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Legal Service</span>
+                </a>
+                <a class="list-group-item" data-remote="true" href="#" id="categoria_11" style="padding-left: 25px;">
+                    <span class="fa fa-suitcase fa-lg fa-fw"></span>
+                    <span style="margin-left: 25px;">Tourisom & Travel</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

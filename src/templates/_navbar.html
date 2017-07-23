@@ -1,0 +1,22 @@
+{% if user.is_authenticated %}
+<li {% if active_link == "home" %}class="nav-item active"{% endif %}>
+    <a class="nav-link" href="{% url 'dashboard:show_dashboard' %}">
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home
+    </a>
+</li>
+<li {% if active_link == "my_tender" %}class="nav-item active"{% endif %}>
+    <a class="nav-link" href="#">
+        <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>&nbsp;My Tender
+    </a>
+</li>
+<li {% if active_link == "message" %}class="nav-item active"{% endif %}>
+    <a class="nav-link" href="#">
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;Message
+    </a>
+</li>
+<li {% if active_link == "profile" %}class="nav-item active"{% endif %}>
+    <a class="nav-link" href="{% url 'profiles:show_self' %}">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile
+    </a>
+</li>
+{% endif %}
