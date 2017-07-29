@@ -1,7 +1,5 @@
-
 {% extends "base.html" %}
 
-<!--
 {% load crispy_forms_tags %}
 
 {% load staticfiles %}
@@ -17,25 +15,21 @@
 
 <div class="container profile-head">
     <div class="row">
-        <div class="col-sm-20">
-            <h2> Query </h2>
-        </div>
+        <h1 class="text-primary">
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;Query
+        </h1>
     </div>
 </div>
 
 <div class="container  profile-body">
 
-    {% block form_heading %}Put Your Service Query{% endblock %}
-
-    {% block form %}
-    {% crispy form %}
-
-    <div class="form-message">
-
+    <div class="col-md-9">
+        <h3>Put Your Service Query</h3>
+        <form enctype="multipart/form-data" method="post">
+            {% crispy query_form %}
+        </form>
     </div>
-    {% endblock form %}
 
 </div>
 
 {% endblock %}
--->
