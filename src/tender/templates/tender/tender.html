@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}My Tender{% endblock %}
+
+{% block navbar-left %}
+{% include "_navbar.html" with active_link="my_tender" %}
+{% endblock %}
+
+{% block container %}
+
+<div class="container profile-head">
+    <div class="row">
+        <div class="col-sm-20">
+            <h2>
+                <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>&nbsp;My Tender</a>
+            </h2>
+        </div>
+    </div>
+</div>
+
+<div class="container  profile-body">
+    <div>
+        <h2 style="display: inline; margin-top: 600px;"> My Buys/Queries </h2>
+        <a href="{% url 'query:query' %}" class="btn btn-success" style="float: right;">New</a>
+        <br /><br /> <br /><br /> <br /><br /> <br />
+    </div>
+
+    <hr/>
+    <div>
+        <h2 style="display: inline;"> My Supplies/Offers </h2>
+        <a href="{% url 'offer:offer' %}" class="btn btn-success" style="float: right;">New</a>
+        <br /><br /> <br /><br /> <br /><br /> <br />
+    </div>
+</div>
+
+{% endblock %}
+
+
