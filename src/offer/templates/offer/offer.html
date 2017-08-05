@@ -1,1 +1,32 @@
 {% extends "base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Find Queries{% endblock %}
+
+{% block navbar-left %}
+{% include "_navbar.html" %}
+{% endblock %}
+
+{% block container %}
+
+<div class="container profile-head">
+    <div class="row">
+        <h1 class="text-primary">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Find Queries
+        </h1>
+    </div>
+</div>
+
+<div class="container  profile-body">
+
+    <div class="col-md-9">
+        <h3>Select a Query...</h3>
+        <br /><br />
+        {% include 'query_list.html' %}
+    </div>
+
+</div>
+
+{% endblock %}
