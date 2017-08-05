@@ -7,20 +7,17 @@ from django import forms
 from . import models
 
 
-class QueryForm(forms.ModelForm):
+class OfferForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
-        super(QueryForm, self).__init__(*args, **kwargs)
+        super(OfferForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_tag = False
         self.helper.layout = Layout(
-            Field('category'),
-            Field('subject'),
             Field('content'),
-            Submit('ask', 'Ask', css_class="btn-success"),
+            Submit('offer', 'Offer', css_class="btn-success"),
             )
 
     class Meta:
-        model = models.Query
-        category = forms.ModelChoiceField(queryset=models.Category.objects.all(), to_field_name="name")
-        fields = ['category', 'subject', 'content']
+        model = models.Offer
+        fields = ['content']

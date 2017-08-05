@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 
-{% load crispy_forms_tags %}
-
 {% load staticfiles %}
 {% load thumbnail %}
 
-{% block title %}{{ block.super }}Offer{% endblock %}
+{% block title %}{{ block.super }}Find Queries{% endblock %}
 
 {% block navbar-left %}
 {% include "_navbar.html" %}
@@ -16,7 +14,7 @@
 <div class="container profile-head">
     <div class="row">
         <h1 class="text-primary">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Offer
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Find Queries
         </h1>
     </div>
 </div>
@@ -24,10 +22,9 @@
 <div class="container  profile-body">
 
     <div class="col-md-9">
-        <h3>Write your offer here...</h3>
-        <form enctype="multipart/form-data" method="post">
-            {% crispy offer_form %}
-        </form>
+        <h3>Select a Query...</h3>
+        <br /><br />
+        {% include 'query_list.html' %}
     </div>
 
 </div>
