@@ -12,3 +12,8 @@ class Tender(LoginRequiredMixin, generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return super(Tender, self).get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        queryset = super(Tender, self).get_queryset()
+        queryset = queryset.filter(user_id=self.request.user.id).order_by('-id')
+        return queryset
