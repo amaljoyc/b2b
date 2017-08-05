@@ -25,7 +25,13 @@
     <div>
         <h2 style="display: inline;"> My Buys/Queries </h2>
         <a href="{% url 'query:query' %}" class="btn btn-success" style="float: right;">New</a>
-        <br /><br /> <br /><br /> <br /><br /> <br />
+
+        <br /><br />
+        {% include 'tender/query_list.html' %}
+        <div style="float: right;">
+            {% include 'tender/pagination.html' %}
+        </div>
+        <br /><br /><br />
     </div>
 
     <hr/>

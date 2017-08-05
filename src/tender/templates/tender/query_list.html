@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Content</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for query in object_list %}
+    <tr>
+        <td>{{ query.category }}</td>
+        <td>{{ query.content }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
