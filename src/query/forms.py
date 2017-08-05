@@ -13,10 +13,12 @@ class QueryForm(forms.ModelForm):
         self.helper.form_tag = False
         self.helper.layout = Layout(
             Field('category'),
+            Field('subject'),
             Field('content'),
             Submit('ask', 'Ask', css_class="btn-success"),
             )
 
     class Meta:
         model = models.Query
-        fields = ['category', 'content']
+        category = forms.ModelChoiceField(queryset=models.Category.objects.all(), to_field_name="name")
+        fields = ['category', 'subject', 'content']
