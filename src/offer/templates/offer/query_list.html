@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block container %}
-
 <div class="container profile-head">
     <div class="row">
         <h1 class="text-primary">
@@ -20,13 +19,12 @@
 </div>
 
 <div class="container  profile-body">
-
-    <div class="col-md-9">
-        <h3>Select a Query...</h3>
-        <br /><br />
-        {% include 'query_list.html' %}
-    </div>
-
+    <h3>Select a Query...</h3>
+    <br/><br/>
+    {% include 'query_list.html' %}
 </div>
-
 {% endblock %}
+
+{% block scripts %}
+<script src="{% static 'site/js/table_click.js' %}"></script>
+{% endblock scripts %}
