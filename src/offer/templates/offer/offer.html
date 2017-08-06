@@ -27,6 +27,7 @@
         <h3>Write your offer here...</h3>
         <form enctype="multipart/form-data" method="post">
             {% crispy offer_form %}
+            <input type='hidden' name='query_id' value={{query_id}}>
         </form>
     </div>
 

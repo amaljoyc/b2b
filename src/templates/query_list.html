@@ -9,7 +9,7 @@
     </thead>
     <tbody>
     {% for query in object_list %}
-    <tr data-href="{% url 'offer:do_offer' %}">
+    <tr data-href="{% url 'offer:do_offer' %}?query={{query.id}}">
         <td>{{ query.creation_date }}</td>
         <td>{{ query.category }}</td>
         <td>{{ query.subject }}</td>

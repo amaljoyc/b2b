@@ -27,12 +27,13 @@ class DoOffer(LoginRequiredMixin, generic.TemplateView):
     http_method_names = ['get', 'post']
 
     def get(self, request, *args, **kwargs):
+        kwargs['query_id'] = request.GET.get('query')
         kwargs["offer_form"] = forms.OfferForm()
         return super(DoOffer, self).get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         user = self.request.user
-        query = self.request.query
+        query_id = request.POST['query_id']
         offer_form = forms.OfferForm(request.POST)
         if not (offer_form.is_valid()):
             messages.error(request, "There was a problem with the form. "
@@ -42,7 +43,7 @@ class DoOffer(LoginRequiredMixin, generic.TemplateView):
 
         offer = offer_form.save(commit=False)
         offer.user = user
-        offer.query = query
+        offer.query = Query.objects.get(id=query_id)
         offer.save()
 
         messages.success(request, "Offer saved!")
