@@ -1,0 +1,24 @@
+<table class="table table-striped table-hover">
+    <thead>
+    <tr>
+        <th>Created On</th>
+        <th>Category</th>
+        <th>Query Subject</th>
+        <th>Offer Content</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for offer in offers %}
+    <tr>
+        <td>{{ offer.creation_date }}</td>
+        <td>{{ offer.query.category }}</td>
+        <td>{{ offer.query.subject }}</td>
+        <td>{{ offer.content }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div style="float: right;">
+    {% include 'pagination.html' %}
+</div>

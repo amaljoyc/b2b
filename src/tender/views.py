@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from query.models import Query
+from offer.models import Offer
 
 
 class Tender(LoginRequiredMixin, generic.ListView):
@@ -17,3 +18,8 @@ class Tender(LoginRequiredMixin, generic.ListView):
         queryset = super(Tender, self).get_queryset()
         queryset = queryset.filter(user_id=self.request.user.id).order_by('-id')
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(Tender, self).get_context_data(**kwargs)
+        context['offers'] = Offer.objects.filter(user_id=self.request.user.id).order_by('-id')
+        return context

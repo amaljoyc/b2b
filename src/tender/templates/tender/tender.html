@@ -35,7 +35,10 @@
     <div>
         <h2 style="display: inline;"> My Supplies/Offers </h2>
         <a href="{% url 'offer:list_queries' %}" class="btn btn-success" style="float: right;">New</a>
-        <br /><br /> <br /><br /> <br /><br /> <br />
+
+        <br /><br />
+        {% include 'tender/offer_list.html' %}
+        <br /><br /><br />
     </div>
 </div>
 
