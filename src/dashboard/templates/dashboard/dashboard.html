@@ -47,12 +47,12 @@
                 <a class="list-group-item" data-remote="true" href="#sub_categoria_1" id="categoria_1"
                    data-toggle="collapse" data-parent="#sub_categoria_1" style="padding-left: 25px;">
                     <span class="fa fa-paperclip fa-lg fa-fw"></span>
-                    <span style="margin-left: 25px;">Accouting & Taxation</span>
+                    <span style="margin-left: 25px;">Accounting & Taxation</span>
                 </a>
                 <div class="collapse list-group-submenu" id="sub_categoria_1">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_1"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="{% url 'offer:list_queries' %}" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_1"
+                    <a href="{% url 'offer:list_queries' %}?cat=accounting" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_1"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -64,7 +64,7 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_2">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_2"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_2"
+                    <a href="{% url 'offer:list_queries' %}?cat=audit" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_2"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -76,7 +76,7 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_3">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_3"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_3"
+                    <a href="{% url 'offer:list_queries' %}?cat=real" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_3"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -88,7 +88,7 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_4">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item" data-parent="#sub_categoria_4"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item" data-parent="#sub_categoria_4"
+                    <a href="{% url 'offer:list_queries' %}?cat=construction" class="list-group-item sub-item" data-parent="#sub_categoria_4"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -100,7 +100,7 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_5">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_5"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_5"
+                    <a href="{% url 'offer:list_queries' %}?cat=finance" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_5"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -112,7 +112,7 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_6">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_6"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_6"
+                    <a href="{% url 'offer:list_queries' %}?cat=health" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_6"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -124,7 +124,7 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_7">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_7"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_7"
+                    <a href="{% url 'offer:list_queries' %}?cat=transport" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_7"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -136,7 +136,7 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_8">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_8"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_8"
+                    <a href="{% url 'offer:list_queries' %}?cat=communication" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_8"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -148,7 +148,7 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_9">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_9"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_9"
+                    <a href="{% url 'offer:list_queries' %}?cat=information" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_9"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
@@ -160,19 +160,19 @@
                 <div class="collapse list-group-submenu" id="sub_categoria_10">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_10"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_10"
+                    <a href="{% url 'offer:list_queries' %}?cat=legal" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_10"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
 
                 <a class="list-group-item" data-remote="true" href="#sub_categoria_11" id="categoria_11"
                    data-toggle="collapse" data-parent="#sub_categoria_11" style="padding-left: 25px;">
                     <span class="fa fa-plane fa-lg fa-fw"></span>
-                    <span style="margin-left: 25px;">Tourisom & Travel</span>
+                    <span style="margin-left: 25px;">Tourism & Travel</span>
                 </a>
                 <div class="collapse list-group-submenu" id="sub_categoria_11">
                     <a href="{% url 'query:query' %}" class="list-group-item sub-item bg-faded" data-parent="#sub_categoria_11"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Buy</a>
-                    <a href="#" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_11"
+                    <a href="{% url 'offer:list_queries' %}?cat=tourism" class="list-group-item sub-item bg-muted" data-parent="#sub_categoria_11"
                        style="padding-left: 78px;"><i class="fa fa-chevron-right"></i>&nbsp;&nbsp;Sell</a>
                 </div>
             </div>

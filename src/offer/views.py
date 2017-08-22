@@ -20,7 +20,11 @@ class QueryList(LoginRequiredMixin, generic.ListView):
         return super(QueryList, self).get(request, *args, **kwargs)
 
     def get_queryset(self):
-        return super(QueryList, self).get_queryset().order_by('-id')
+        cat = self.request.GET.get('cat')
+        if cat:
+            return super(QueryList, self).get_queryset().order_by('-id').filter(category__name__icontains=cat)
+        else:
+            return super(QueryList, self).get_queryset().order_by('-id')
 
 class DoOffer(LoginRequiredMixin, generic.TemplateView):
     template_name = "offer/offer.html"
