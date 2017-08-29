@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.views import generic
 from query.models import Query
+from django.db.models import Q
 
 from . import forms
 
@@ -21,8 +22,12 @@ class QueryList(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         cat = self.request.GET.get('cat')
+        find = self.request.GET.get('find')
         if cat:
             return super(QueryList, self).get_queryset().order_by('-id').filter(category__name__icontains=cat)
+        elif find:
+            return super(QueryList, self).get_queryset().order_by('-id').\
+                filter(Q(category__name__icontains=find) | Q(subject__icontains=find) | Q(content__icontains=find))
         else:
             return super(QueryList, self).get_queryset().order_by('-id')
 

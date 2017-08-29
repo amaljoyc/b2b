@@ -17,12 +17,12 @@
             <h1 class="text-primary" style="display: inline;">
                 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home
             </h1>
-            <form action="#" method="GET">
+            <form action="{% url 'offer:list_queries' %}" method="GET">
                 <div class="row">
                     <div class="col-lg-6 col-lg-offset-3">
                         <div class="input-group input-group-lg">
                             <span class="input-group-addon" id="basic-addon1">SERVICES</span>
-                            <input type="text" class="form-control" placeholder="What are you looking for..."
+                            <input type="text" name="find" class="form-control" placeholder="What are you looking for..."
                                    id="txtSearch"/>
                             <div class="input-group-btn">
                                 <button class="btn btn-primary" type="submit">
