@@ -13,7 +13,7 @@
         <td>{{ query.creation_date }}</td>
         <td>{{ query.category }}</td>
         <td>{{ query.subject }}</td>
-        <td>{{ query.content }}</td>
+        <td>{{ query.content|truncatechars:140 }}</td>
     </tr>
     {% endfor %}
     </tbody>
