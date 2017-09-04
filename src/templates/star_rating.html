@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+
+{% load ratings %}
+
+{% if no_edit %}
+    {% ratings user_to_rate read_only=True %}
+{% else %}
+    {% ratings user_to_rate %}
+{% endif %}

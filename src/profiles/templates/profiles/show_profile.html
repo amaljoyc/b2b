@@ -22,6 +22,7 @@
     <div class="col-sm-2"><img title="profile picture" class="img-circle img-responsive" src="{% thumbnail show_user.profile.picture|default:'default_profile.png' 140x140 crop %}">
     </div>
   </div>
+  {% include 'star_rating.html' %}
 </div>
 
 <div class="container profile-body">

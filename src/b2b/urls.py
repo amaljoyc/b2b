@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^offer/', include(offer.urls, namespace='offer')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(accounts.urls, namespace='accounts')),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
 ]
 
 # User-uploaded files like profile pics need to be served in development
