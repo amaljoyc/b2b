@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Query Details{% endblock %}
+
+{% block navbar-left %}
+{% include "_navbar.html" %}
+{% endblock %}
+
+{% block container %}
+<div class="container profile-head">
+    <div class="row">
+        <h1 class="text-primary">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;Query Details
+        </h1>
+    </div>
+</div>
+
+<div class="container profile-body">
+    <br/><br/>
+
+    <div class="col-md-9">
+        <b>Created On: </b>{{ query.creation_date }}<br/>
+        <b>Category: </b>{{ query.category }}<br/><br/>
+        <b>Subject: </b>{{ query.subject }}<br/><br/>
+        {{ query.content }}<br/><br/>
+    </div>
+
+</div>
+{% endblock %}

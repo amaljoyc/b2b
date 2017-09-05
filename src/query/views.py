@@ -38,7 +38,7 @@ class QueryList(LoginRequiredMixin, generic.ListView):
     model = models.Query
     paginate_by = 6
     context_object_name = "queries"
-    template_name = "offer/query_list.html"
+    template_name = "query/query_list.html"
     http_method_names = ['get']
 
     def get(self, request, *args, **kwargs):
@@ -54,3 +54,14 @@ class QueryList(LoginRequiredMixin, generic.ListView):
                 filter(Q(category__name__icontains=find) | Q(subject__icontains=find) | Q(content__icontains=find))
         else:
             return super(QueryList, self).get_queryset().order_by('-id')
+
+
+class QueryDetails(LoginRequiredMixin, generic.TemplateView):
+    model = models.Query
+    template_name = "query/query_details.html"
+    http_method_names = ['get']
+
+    def get(self, request, *args, **kwargs):
+        query_id = request.GET.get('id')
+        kwargs["query"] = models.Query.objects.get(id=query_id)
+        return super(QueryDetails, self).get(request, *args, **kwargs)
