@@ -1,8 +1,10 @@
 from __future__ import unicode_literals
-from django.views import generic
-from django.shortcuts import get_object_or_404, redirect
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
+from django.views import generic
+
 from . import forms
 from . import models
 
@@ -30,3 +32,25 @@ class Query(LoginRequiredMixin, generic.TemplateView):
 
         messages.success(request, "Query saved!")
         return redirect("query:query")
+
+
+class QueryList(LoginRequiredMixin, generic.ListView):
+    model = models.Query
+    paginate_by = 6
+    context_object_name = "queries"
+    template_name = "offer/query_list.html"
+    http_method_names = ['get']
+
+    def get(self, request, *args, **kwargs):
+        return super(QueryList, self).get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        cat = self.request.GET.get('cat')
+        find = self.request.GET.get('find')
+        if cat:
+            return super(QueryList, self).get_queryset().order_by('-id').filter(category__name__icontains=cat)
+        elif find:
+            return super(QueryList, self).get_queryset().order_by('-id').\
+                filter(Q(category__name__icontains=find) | Q(subject__icontains=find) | Q(content__icontains=find))
+        else:
+            return super(QueryList, self).get_queryset().order_by('-id')
