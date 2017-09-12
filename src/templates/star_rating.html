@@ -5,7 +5,7 @@
 
 {% load ratings %}
 
-{% if no_edit %}
+{% if rating_no_edit %}
     {% ratings user_to_rate read_only=True %}
 {% else %}
     {% ratings user_to_rate %}

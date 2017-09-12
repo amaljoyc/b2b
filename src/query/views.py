@@ -48,12 +48,14 @@ class QueryList(LoginRequiredMixin, generic.ListView):
         cat = self.request.GET.get('cat')
         find = self.request.GET.get('find')
         if cat:
-            return super(QueryList, self).get_queryset().order_by('-id').filter(category__name__icontains=cat)
+            set = super(QueryList, self).get_queryset().order_by('-id').filter(category__name__icontains=cat)
         elif find:
-            return super(QueryList, self).get_queryset().order_by('-id').\
+            set = super(QueryList, self).get_queryset().order_by('-id').\
                 filter(Q(category__name__icontains=find) | Q(subject__icontains=find) | Q(content__icontains=find))
         else:
-            return super(QueryList, self).get_queryset().order_by('-id')
+            set = super(QueryList, self).get_queryset().order_by('-id')
+
+        return set.exclude(user_id=self.request.user.id)
 
 
 class QueryDetails(LoginRequiredMixin, generic.TemplateView):

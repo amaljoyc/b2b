@@ -1,8 +1,10 @@
 from __future__ import unicode_literals
-from django.views import generic
-from django.shortcuts import get_object_or_404, redirect
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect
+from django.views import generic
+
 from . import forms
 from . import models
 
@@ -19,11 +21,23 @@ class ShowProfile(LoginRequiredMixin, generic.TemplateView):
         else:
             user = self.request.user
 
-        if user == self.request.user:
-            kwargs["editable"] = True
-        kwargs["show_user"] = user
-        kwargs["user_to_rate"] = user
-        kwargs["no_edit"] = True
+        user_id = request.GET.get('user_id')
+        public_profile = None
+        if user_id:
+            public_profile = models.Profile.objects.get(user_id=user_id)
+
+        if public_profile:
+            kwargs["editable"] = False
+            kwargs["show_user"] = public_profile.user
+            kwargs["user_to_rate"] = public_profile.user
+            kwargs["rating_no_edit"] = False
+        else:
+            if user == self.request.user:
+                kwargs["editable"] = True
+            kwargs["show_user"] = user
+            kwargs["user_to_rate"] = user
+            kwargs["rating_no_edit"] = True
+
         return super(ShowProfile, self).get(request, *args, **kwargs)
 
 
