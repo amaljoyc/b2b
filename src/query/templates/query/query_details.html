@@ -29,9 +29,15 @@
 
         {% if query.user_id == request_user_id %}
             <br /><br />
-            <h4 style="display: inline;color: green;"> Available Offers...!! </h4>
-            <br />
-            {% include 'offer/offer_list.html' %}
+
+            {% if offers %}
+                <h4 style="display: inline;color: green;"> Available Offers...!! </h4>
+                <br />
+                {% include 'offer/offer_list.html' %}
+            {% else %}
+                <h4 style="display: inline;color: red;"> No Offers...!! </h4>
+            {% endif %}
+
             <br /><br /><br />
         {% else %}
             <a href="{% url 'profiles:show_self' %}?user_id={{query.user_id}}" class="btn btn-success" style="float: left;">Profile</a>
