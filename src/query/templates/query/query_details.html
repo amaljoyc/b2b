@@ -26,8 +26,18 @@
         <b>Category: </b>{{ query.category }}<br/><br/>
         <b>Subject: </b>{{ query.subject }}<br/><br/>
         {{ query.content }}<br/><br/>
-        <a href="{% url 'profiles:show_self' %}?user_id={{query.user_id}}" class="btn btn-success" style="float: left;">Profile</a>
-        <a href="{% url 'offer:do_offer' %}?query={{query.id}}" class="btn btn-success" style="float: right;">Offer</a>
+
+        {% if query.user_id == request_user_id %}
+            <br /><br />
+            <h4 style="display: inline;color: green;"> Available Offers...!! </h4>
+            <br />
+            {% include 'offer/offer_list.html' %}
+            <br /><br /><br />
+        {% else %}
+            <a href="{% url 'profiles:show_self' %}?user_id={{query.user_id}}" class="btn btn-success" style="float: left;">Profile</a>
+            <a href="{% url 'offer:do_offer' %}?query={{query.id}}" class="btn btn-success" style="float: right;">Offer</a>
+        {% endif %}
+
     </div>
 
 </div>

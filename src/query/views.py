@@ -7,6 +7,7 @@ from django.views import generic
 
 from . import forms
 from . import models
+from offer.models import Offer
 
 
 class Query(LoginRequiredMixin, generic.TemplateView):
@@ -66,4 +67,11 @@ class QueryDetails(LoginRequiredMixin, generic.TemplateView):
     def get(self, request, *args, **kwargs):
         query_id = request.GET.get('id')
         kwargs["query"] = models.Query.objects.get(id=query_id)
+        kwargs["request_user_id"] = self.request.user.id
         return super(QueryDetails, self).get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        query_id = self.request.GET.get('id')
+        context = super(QueryDetails, self).get_context_data(**kwargs)
+        context['offers'] = Offer.objects.filter(query_id=query_id).order_by('-id')
+        return context

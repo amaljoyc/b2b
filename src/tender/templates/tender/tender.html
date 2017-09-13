@@ -37,7 +37,7 @@
         <a href="{% url 'query:list_queries' %}" class="btn btn-success" style="float: right;">New</a>
 
         <br /><br />
-        {% include 'tender/offer_list.html' %}
+        {% include 'offer/offer_list.html' %}
         <br /><br /><br />
     </div>
 </div>
@@ -45,3 +45,6 @@
 {% endblock %}
 
 
+{% block scripts %}
+<script src="{% static 'site/js/table_click.js' %}"></script>
+{% endblock scripts %}
