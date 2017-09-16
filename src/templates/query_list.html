@@ -1,3 +1,4 @@
+<!--
 <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -18,6 +19,29 @@
     {% endfor %}
     </tbody>
 </table>
+-->
+
+
+<div class="row">
+    {% for query in object_list %}
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="{% url 'query:show_details' %}?id={{query.id}}">{{ query.subject }}</a>
+                    </h4>
+                    <h6>{{ query.creation_date }}</h6>
+                    <h6>{{ query.category }}</h6>
+                    <p class="card-text">{{ query.content|truncatechars:40 }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 <div style="float: right;">
     {% include 'pagination.html' %}
