@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Offer Details{% endblock %}
+
+{% block navbar-left %}
+{% include "_navbar.html" %}
+{% endblock %}
+
+{% block container %}
+<div class="container profile-head">
+    <div class="row">
+        <h1 class="text-primary">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;Offer Details
+        </h1>
+    </div>
+</div>
+
+<div class="container profile-body">
+    <br/><br/>
+
+    <div class="col-md-9">
+        <b>Offered On: </b>{{ offer.creation_date }}<br/>
+        <b>Offer: </b>{{ offer.content }}<br/><br/>
+        <b>Category: </b>{{ offer.query.category }}<br/>
+        <b>Subject: </b>{{ offer.query.subject }}<br/>
+        <b>Query: </b>{{ offer.query.content }}<br/><br/>
+
+        {% if offer.user_id == request_user_id %}
+            <br /><br />
+
+            {% if accepts %}
+                <h4 style="display: inline;color: green;"> Available Accepts...!! </h4>
+                <br />
+                {% include 'offer/accept_list.html' %}
+            {% else %}
+                <h4 style="display: inline;color: red;"> No Accepts...!! </h4>
+            {% endif %}
+
+            <br /><br /><br />
+        {% else %}
+            <a href="{% url 'profiles:show_self' %}?user_id={{offer.user_id}}" class="btn btn-success" style="float: left;">Profile</a>
+            <a href="{% url 'offer:do_accept' %}?offer={{offer.id}}" class="btn btn-success" style="float: right;">Accept</a>
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}

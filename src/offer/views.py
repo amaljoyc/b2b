@@ -7,6 +7,7 @@ from django.views import generic
 from query.models import Query
 
 from . import forms
+from .models import Offer
 
 
 class DoOffer(LoginRequiredMixin, generic.TemplateView):
@@ -35,3 +36,14 @@ class DoOffer(LoginRequiredMixin, generic.TemplateView):
 
         messages.success(request, "Offer saved!")
         return redirect("offer:do_offer")
+
+
+class OfferDetails(LoginRequiredMixin, generic.TemplateView):
+    template_name = "offer/offer_details.html"
+    http_method_names = ['get']
+
+    def get(self, request, *args, **kwargs):
+        offer_id = request.GET.get('id')
+        kwargs["offer"] = Offer.objects.get(id=offer_id)
+        kwargs["request_user_id"] = self.request.user.id
+        return super(OfferDetails, self).get(request, *args, **kwargs)
