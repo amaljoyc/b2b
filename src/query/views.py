@@ -2,12 +2,13 @@ from __future__ import unicode_literals
 
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import redirect
 from django.views import generic
+from offer.models import Offer
 
 from . import forms
 from . import models
-from offer.models import Offer
 
 
 class Query(LoginRequiredMixin, generic.TemplateView):
