@@ -38,7 +38,7 @@ class Query(LoginRequiredMixin, generic.TemplateView):
 
 class QueryList(LoginRequiredMixin, generic.ListView):
     model = models.Query
-    paginate_by = 6
+    paginate_by = 4
     context_object_name = "queries"
     template_name = "query/query_list.html"
     http_method_names = ['get']
