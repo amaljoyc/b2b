@@ -1,3 +1,4 @@
+<!--
 <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -18,6 +19,33 @@
     {% endfor %}
     </tbody>
 </table>
+
+<div style="float: right;">
+    {% include 'pagination.html' %}
+</div>
+-->
+
+{% load thumbnail %}
+<div class="row">
+    {% for offer in offers %}
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100" style="width: 25rem;">
+                <a href="#"><img class="card-img-top" src="{% thumbnail offer.user.profile.picture|default:'default_profile.png' 140x140 crop %}" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="{% url 'offer:show_details' %}?id={{offer.id}}">{{ offer.query.subject }}</a>
+                    </h4>
+                    <h6>{{ offer.creation_date }}</h6>
+                    <h6>{{ offer.query.category }}</h6>
+                    <p class="card-text">{{ offer.content|truncatechars:36 }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 <div style="float: right;">
     {% include 'pagination.html' %}
