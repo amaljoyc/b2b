@@ -30,7 +30,9 @@
     {% for offer in offers %}
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100" style="width: 25rem;">
-                <a href="#"><img class="card-img-top" src="{% thumbnail offer.user.profile.picture|default:'default_profile.png' 140x140 crop %}" alt=""></a>
+                <a href="{% url 'offer:show_details' %}?id={{offer.id}}">
+                    <img class="card-img-top" src="{% thumbnail offer.user.profile.picture|default:'default_profile.png' 140x140 crop %}" alt="">
+                </a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="{% url 'offer:show_details' %}?id={{offer.id}}">{{ offer.query.subject }}</a>
