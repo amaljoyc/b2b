@@ -31,12 +31,11 @@
         {% if offer.user_id == request_user_id %}
             <br /><br />
 
-            {% if accepts %}
-                <h4 style="display: inline;color: green;"> Available Accepts...!! </h4>
+            {% if offer.accepted %}
+                <h4 style="display: inline;color: green;"> Congrats! Your offer is accepted...!! </h4>
                 <br />
-                {% include 'offer/accept_list.html' %}
             {% else %}
-                <h4 style="display: inline;color: red;"> No Accepts...!! </h4>
+                <h4 style="display: inline;color: red;"> Not accepted yet...!! </h4>
             {% endif %}
 
             <br /><br /><br />

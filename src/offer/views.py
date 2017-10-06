@@ -47,3 +47,14 @@ class OfferDetails(LoginRequiredMixin, generic.TemplateView):
         kwargs["offer"] = Offer.objects.get(id=offer_id)
         kwargs["request_user_id"] = self.request.user.id
         return super(OfferDetails, self).get(request, *args, **kwargs)
+
+class DoAcceptOffer(LoginRequiredMixin, generic.TemplateView):
+    template_name = "offer/accept.html"
+    http_method_names = ['get']
+
+    def get(self, request, *args, **kwargs):
+        offer_id = request.GET.get('offer')
+        offer = Offer.objects.get(id=offer_id)
+        offer.accepted = True
+        offer.save()
+        return super(DoAcceptOffer, self).get(request, *args, **kwargs)

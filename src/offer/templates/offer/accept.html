@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Accepted{% endblock %}
+
+{% block navbar-left %}
+{% include "_navbar.html" %}
+{% endblock %}
+
+{% block container %}
+
+<div class="container profile-head">
+    <div class="row">
+        <h1 class="text-primary">
+            <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>&nbsp;Transaction
+        </h1>
+    </div>
+</div>
+
+<div class="container  profile-body">
+
+    <div class="col-md-9">
+        <h3>The offer is accepted and transaction flow starts...!!</h3>
+    </div>
+
+</div>
+
+{% endblock %}
