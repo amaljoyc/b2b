@@ -23,26 +23,33 @@
 
 {% load thumbnail %}
 <div class="row">
+    {% if object_list %}
     {% for query in object_list %}
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100" style="width: 25rem;">
-                <a href="{% url 'query:show_details' %}?id={{query.id}}">
-                    <img class="card-img-top" src="{% thumbnail query.user.profile.picture|default:'default_profile.png' 140x140 crop %}" alt="">
-                </a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="{% url 'query:show_details' %}?id={{query.id}}">{{ query.subject }}</a>
-                    </h4>
-                    <h6>{{ query.creation_date }}</h6>
-                    <h6>{{ query.category }}</h6>
-                    <p class="card-text">{{ query.content|truncatechars:36 }}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100" style="width: 25rem;">
+            <a href="{% url 'query:show_details' %}?id={{query.id}}">
+                <img class="card-img-top"
+                     src="{% thumbnail query.user.profile.picture|default:'default_profile.png' 140x140 crop %}" alt="">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="{% url 'query:show_details' %}?id={{query.id}}">{{ query.subject }}</a>
+                </h4>
+                <h6>{{ query.creation_date }}</h6>
+                <h6>{{ query.category }}</h6>
+                <p class="card-text">{{ query.content|truncatechars:36 }}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
             </div>
         </div>
+    </div>
     {% endfor %}
+    {% else %}
+    <div class="col-lg-3 col-md-6 mb-4">
+        <h4 style="display: inline;color: grey;"> Not Queries yet...!! </h4>
+    </div>
+    {% endif %}
 </div>
 
 <div style="float: right;">

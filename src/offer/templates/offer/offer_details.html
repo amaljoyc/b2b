@@ -23,10 +23,10 @@
 
     <div class="col-md-9">
         <b>Offered On: </b>{{ offer.creation_date }}<br/>
-        <b>Offer: </b>{{ offer.content }}<br/><br/>
+        <b>Offer: </b><pre>{{ offer.content }}</pre><br/><br/>
         <b>Category: </b>{{ offer.query.category }}<br/>
         <b>Subject: </b>{{ offer.query.subject }}<br/>
-        <b>Query: </b>{{ offer.query.content }}<br/><br/>
+        <b>Query: </b><pre>{{ offer.query.content }}</pre><br/><br/>
 
         {% if offer.user_id == request_user_id %}
             <br /><br />
@@ -35,7 +35,7 @@
                 <h4 style="display: inline;color: green;"> Congrats! Your offer is accepted...!! </h4>
                 <br />
             {% else %}
-                <h4 style="display: inline;color: red;"> Not accepted yet...!! </h4>
+                <h4 style="display: inline;color: grey;"> Not accepted yet...!! </h4>
             {% endif %}
 
             <br /><br /><br />

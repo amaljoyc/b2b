@@ -25,7 +25,7 @@
         <b>Created On: </b>{{ query.creation_date }}<br/>
         <b>Category: </b>{{ query.category }}<br/><br/>
         <b>Subject: </b>{{ query.subject }}<br/><br/>
-        {{ query.content }}<br/><br/>
+        <pre>{{ query.content }}</pre><br/><br/>
 
         {% if query.user_id == request_user_id %}
             <br /><br />
@@ -35,7 +35,7 @@
                 <br />
                 {% include 'offer/offer_list.html' %}
             {% else %}
-                <h4 style="display: inline;color: red;"> No Offers yet...!! </h4>
+                <h4 style="display: inline;color: grey;"> No Offers yet...!! </h4>
             {% endif %}
 
             <br /><br /><br />
