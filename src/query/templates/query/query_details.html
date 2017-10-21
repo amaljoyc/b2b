@@ -25,7 +25,7 @@
         <b>Created On: </b>{{ query.creation_date }}<br/>
         <b>Category: </b>{{ query.category }}<br/><br/>
         <b>Subject: </b>{{ query.subject }}<br/><br/>
-        <pre>{{ query.content }}</pre><br/><br/>
+        <pre style="white-space:pre-wrap;">{{ query.content }}</pre><br/><br/>
 
         {% if query.user_id == request_user_id %}
             <br /><br />

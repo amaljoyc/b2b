@@ -23,10 +23,10 @@
 
     <div class="col-md-9">
         <b>Offered On: </b>{{ offer.creation_date }}<br/>
-        <b>Offer: </b><pre>{{ offer.content }}</pre><br/><br/>
+        <b>Offer: </b><pre style="white-space:pre-wrap;">{{ offer.content }}</pre><br/><br/>
         <b>Category: </b>{{ offer.query.category }}<br/>
         <b>Subject: </b>{{ offer.query.subject }}<br/>
-        <b>Query: </b><pre>{{ offer.query.content }}</pre><br/><br/>
+        <b>Query: </b><pre style="white-space:pre-wrap;">{{ offer.query.content }}</pre><br/><br/>
 
         {% if offer.user_id == request_user_id %}
             <br /><br />
