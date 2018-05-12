@@ -1,0 +1,301 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL);
+INSERT INTO "django_migrations" VALUES(1,'contenttypes','0001_initial','2017-08-05 17:11:26.149735');
+INSERT INTO "django_migrations" VALUES(2,'auth','0001_initial','2017-08-05 17:11:26.182541');
+INSERT INTO "django_migrations" VALUES(3,'authtools','0001_initial','2017-08-05 17:11:26.212807');
+INSERT INTO "django_migrations" VALUES(4,'admin','0001_initial','2017-08-05 17:11:26.270748');
+INSERT INTO "django_migrations" VALUES(5,'admin','0002_logentry_remove_auto_add','2017-08-05 17:11:26.320477');
+INSERT INTO "django_migrations" VALUES(6,'contenttypes','0002_remove_content_type_name','2017-08-05 17:11:26.386285');
+INSERT INTO "django_migrations" VALUES(7,'auth','0002_alter_permission_name_max_length','2017-08-05 17:11:26.406757');
+INSERT INTO "django_migrations" VALUES(8,'auth','0003_alter_user_email_max_length','2017-08-05 17:11:26.434382');
+INSERT INTO "django_migrations" VALUES(9,'auth','0004_alter_user_username_opts','2017-08-05 17:11:26.453087');
+INSERT INTO "django_migrations" VALUES(10,'auth','0005_alter_user_last_login_null','2017-08-05 17:11:26.467759');
+INSERT INTO "django_migrations" VALUES(11,'auth','0006_require_contenttypes_0002','2017-08-05 17:11:26.474975');
+INSERT INTO "django_migrations" VALUES(12,'auth','0007_alter_validators_add_error_messages','2017-08-05 17:11:26.512031');
+INSERT INTO "django_migrations" VALUES(13,'auth','0008_alter_user_username_max_length','2017-08-05 17:11:26.548309');
+INSERT INTO "django_migrations" VALUES(14,'authtools','0002_django18','2017-08-05 17:11:26.580267');
+INSERT INTO "django_migrations" VALUES(15,'authtools','0003_auto_20160128_0912','2017-08-05 17:11:26.609798');
+INSERT INTO "django_migrations" VALUES(16,'easy_thumbnails','0001_initial','2017-08-05 17:11:26.637518');
+INSERT INTO "django_migrations" VALUES(17,'easy_thumbnails','0002_thumbnaildimensions','2017-08-05 17:11:26.674869');
+INSERT INTO "django_migrations" VALUES(18,'profiles','0001_initial','2017-08-05 17:11:26.717684');
+INSERT INTO "django_migrations" VALUES(19,'query','0001_initial','2017-08-05 17:11:26.773300');
+INSERT INTO "django_migrations" VALUES(20,'sessions','0001_initial','2017-08-05 17:11:26.793658');
+INSERT INTO "django_migrations" VALUES(21,'offer','0001_initial','2017-08-05 20:57:17.001078');
+INSERT INTO "django_migrations" VALUES(22,'star_ratings','0001_initial','2017-09-04 21:40:02.131020');
+INSERT INTO "django_migrations" VALUES(23,'star_ratings','0002_auto_20160608_1119','2017-09-04 21:40:02.172588');
+INSERT INTO "django_migrations" VALUES(24,'star_ratings','0003_auto_20160721_1127','2017-09-04 21:40:02.198159');
+INSERT INTO "django_migrations" VALUES(25,'offer','0002_offer_accepted','2017-10-06 20:41:35.604572');
+INSERT INTO "django_migrations" VALUES(26,'profiles','0002_auto_20171021_1532','2017-10-21 15:32:18.167979');
+CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE);
+CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"));
+CREATE TABLE "authtools_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "authtools_user" ("id"), "group_id" integer NOT NULL REFERENCES "auth_group" ("id"));
+CREATE TABLE "authtools_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "authtools_user" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"));
+CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL, "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id"), "user_id" integer NOT NULL REFERENCES "authtools_user" ("id"), "action_time" datetime NOT NULL);
+INSERT INTO "django_admin_log" VALUES(1,'1','Category object',1,'[{"added": {}}]',11,2,'2017-08-05 17:19:31.373139');
+INSERT INTO "django_admin_log" VALUES(2,'2','Category object',1,'[{"added": {}}]',11,2,'2017-08-05 17:20:12.231371');
+INSERT INTO "django_admin_log" VALUES(3,'3','Category object',1,'[{"added": {}}]',11,2,'2017-08-05 17:20:28.360425');
+INSERT INTO "django_admin_log" VALUES(4,'4','Category object',1,'[{"added": {}}]',11,2,'2017-08-05 17:20:40.212180');
+INSERT INTO "django_admin_log" VALUES(5,'5','Category object',1,'[{"added": {}}]',11,2,'2017-08-05 17:20:46.939148');
+INSERT INTO "django_admin_log" VALUES(6,'6','Health & Social',1,'[{"added": {}}]',11,2,'2017-08-05 17:24:19.903107');
+INSERT INTO "django_admin_log" VALUES(7,'7','Trasport',1,'[{"added": {}}]',11,2,'2017-08-05 17:24:28.368455');
+INSERT INTO "django_admin_log" VALUES(8,'8','Communication',1,'[{"added": {}}]',11,2,'2017-08-05 17:24:36.125845');
+INSERT INTO "django_admin_log" VALUES(9,'9','Information Technology',1,'[{"added": {}}]',11,2,'2017-08-05 17:24:46.058830');
+INSERT INTO "django_admin_log" VALUES(10,'10','Legal Service',1,'[{"added": {}}]',11,2,'2017-08-05 17:24:59.325852');
+INSERT INTO "django_admin_log" VALUES(11,'11','Tourism & Travel',1,'[{"added": {}}]',11,2,'2017-08-05 17:25:29.764108');
+INSERT INTO "django_admin_log" VALUES(12,'5','Antonio <antonio@example.de>',3,'',15,2,'2017-10-21 14:33:24.364826');
+INSERT INTO "django_admin_log" VALUES(13,'4','Admin <admin@example.de>''s profile',3,'',15,2,'2017-10-21 14:33:24.383068');
+INSERT INTO "django_admin_log" VALUES(14,'3','Amal Joy Chemparathy <amaljoyc@gmail.com>''s profile',3,'',15,2,'2017-10-21 14:33:24.394337');
+INSERT INTO "django_admin_log" VALUES(15,'2','Admin <admin@example.de>',3,'',15,2,'2017-10-21 14:33:24.408316');
+INSERT INTO "django_admin_log" VALUES(16,'1','Amal Joy Chemparathy <amaljoyc@gmail.com>',3,'',15,2,'2017-10-21 14:33:24.429858');
+INSERT INTO "django_admin_log" VALUES(17,'1','Amal Joy Chemparathy <amaljoyc@gmail.com>',3,'',6,2,'2017-10-21 14:34:17.679602');
+INSERT INTO "django_admin_log" VALUES(18,'3','Antonio <antonio@example.de>',3,'',6,2,'2017-10-21 14:34:17.695804');
+CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL);
+INSERT INTO "django_content_type" VALUES(1,'auth','group');
+INSERT INTO "django_content_type" VALUES(2,'auth','permission');
+INSERT INTO "django_content_type" VALUES(3,'admin','logentry');
+INSERT INTO "django_content_type" VALUES(4,'contenttypes','contenttype');
+INSERT INTO "django_content_type" VALUES(5,'sessions','session');
+INSERT INTO "django_content_type" VALUES(6,'authtools','user');
+INSERT INTO "django_content_type" VALUES(7,'easy_thumbnails','source');
+INSERT INTO "django_content_type" VALUES(8,'easy_thumbnails','thumbnail');
+INSERT INTO "django_content_type" VALUES(9,'easy_thumbnails','thumbnaildimensions');
+INSERT INTO "django_content_type" VALUES(10,'profiles','profile');
+INSERT INTO "django_content_type" VALUES(11,'query','category');
+INSERT INTO "django_content_type" VALUES(12,'query','query');
+INSERT INTO "django_content_type" VALUES(13,'offer','offer');
+INSERT INTO "django_content_type" VALUES(14,'star_ratings','userrating');
+INSERT INTO "django_content_type" VALUES(15,'star_ratings','rating');
+CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL);
+INSERT INTO "auth_permission" VALUES(1,1,'add_group','Can add group');
+INSERT INTO "auth_permission" VALUES(2,1,'change_group','Can change group');
+INSERT INTO "auth_permission" VALUES(3,1,'delete_group','Can delete group');
+INSERT INTO "auth_permission" VALUES(4,2,'add_permission','Can add permission');
+INSERT INTO "auth_permission" VALUES(5,2,'change_permission','Can change permission');
+INSERT INTO "auth_permission" VALUES(6,2,'delete_permission','Can delete permission');
+INSERT INTO "auth_permission" VALUES(7,3,'add_logentry','Can add log entry');
+INSERT INTO "auth_permission" VALUES(8,3,'change_logentry','Can change log entry');
+INSERT INTO "auth_permission" VALUES(9,3,'delete_logentry','Can delete log entry');
+INSERT INTO "auth_permission" VALUES(10,4,'add_contenttype','Can add content type');
+INSERT INTO "auth_permission" VALUES(11,4,'change_contenttype','Can change content type');
+INSERT INTO "auth_permission" VALUES(12,4,'delete_contenttype','Can delete content type');
+INSERT INTO "auth_permission" VALUES(13,5,'add_session','Can add session');
+INSERT INTO "auth_permission" VALUES(14,5,'change_session','Can change session');
+INSERT INTO "auth_permission" VALUES(15,5,'delete_session','Can delete session');
+INSERT INTO "auth_permission" VALUES(16,6,'add_user','Can add user');
+INSERT INTO "auth_permission" VALUES(17,6,'change_user','Can change user');
+INSERT INTO "auth_permission" VALUES(18,6,'delete_user','Can delete user');
+INSERT INTO "auth_permission" VALUES(19,7,'add_source','Can add source');
+INSERT INTO "auth_permission" VALUES(20,7,'change_source','Can change source');
+INSERT INTO "auth_permission" VALUES(21,7,'delete_source','Can delete source');
+INSERT INTO "auth_permission" VALUES(22,8,'add_thumbnail','Can add thumbnail');
+INSERT INTO "auth_permission" VALUES(23,8,'change_thumbnail','Can change thumbnail');
+INSERT INTO "auth_permission" VALUES(24,8,'delete_thumbnail','Can delete thumbnail');
+INSERT INTO "auth_permission" VALUES(25,9,'add_thumbnaildimensions','Can add thumbnail dimensions');
+INSERT INTO "auth_permission" VALUES(26,9,'change_thumbnaildimensions','Can change thumbnail dimensions');
+INSERT INTO "auth_permission" VALUES(27,9,'delete_thumbnaildimensions','Can delete thumbnail dimensions');
+INSERT INTO "auth_permission" VALUES(28,10,'add_profile','Can add profile');
+INSERT INTO "auth_permission" VALUES(29,10,'change_profile','Can change profile');
+INSERT INTO "auth_permission" VALUES(30,10,'delete_profile','Can delete profile');
+INSERT INTO "auth_permission" VALUES(31,11,'add_category','Can add category');
+INSERT INTO "auth_permission" VALUES(32,11,'change_category','Can change category');
+INSERT INTO "auth_permission" VALUES(33,11,'delete_category','Can delete category');
+INSERT INTO "auth_permission" VALUES(34,12,'add_query','Can add query');
+INSERT INTO "auth_permission" VALUES(35,12,'change_query','Can change query');
+INSERT INTO "auth_permission" VALUES(36,12,'delete_query','Can delete query');
+INSERT INTO "auth_permission" VALUES(37,13,'add_offer','Can add offer');
+INSERT INTO "auth_permission" VALUES(38,13,'change_offer','Can change offer');
+INSERT INTO "auth_permission" VALUES(39,13,'delete_offer','Can delete offer');
+INSERT INTO "auth_permission" VALUES(40,14,'add_userrating','Can add user rating');
+INSERT INTO "auth_permission" VALUES(41,14,'change_userrating','Can change user rating');
+INSERT INTO "auth_permission" VALUES(42,14,'delete_userrating','Can delete user rating');
+INSERT INTO "auth_permission" VALUES(43,15,'add_rating','Can add rating');
+INSERT INTO "auth_permission" VALUES(44,15,'change_rating','Can change rating');
+INSERT INTO "auth_permission" VALUES(45,15,'delete_rating','Can delete rating');
+CREATE TABLE "authtools_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "email" varchar(255) NOT NULL UNIQUE, "is_staff" bool NOT NULL, "date_joined" datetime NOT NULL, "name" varchar(255) NOT NULL, "is_active" bool NOT NULL);
+INSERT INTO "authtools_user" VALUES(2,'pbkdf2_sha256$36000$m2Yx3AtR70hf$ToR/nrD50VSfuHAk03IGnQEqfPiZ2QFd5lHrSbHvd/c=','2017-10-21 16:47:50.844292',1,'admin@example.de',1,'2017-08-05 17:15:24.048792','Admin',1);
+INSERT INTO "authtools_user" VALUES(4,'pbkdf2_sha256$36000$xjaIyQ1htAAG$BuQKz3ZtyqIZPI6GFze3ugwpVpwK358FesyTnfWLmJg=','2017-10-21 17:18:05.323486',0,'braun@example.de',0,'2017-10-21 14:39:32.208591','Braun Architeture & Co.',1);
+INSERT INTO "authtools_user" VALUES(5,'pbkdf2_sha256$36000$iQ9rDjwCLiYg$DAe7CL+U2kV4B1pT4izu+LBYra8LYHWHZy3XosNMeKA=','2017-10-21 17:40:22.834916',0,'pelikan@example.de',0,'2017-10-21 14:54:57.271685','Pelikan Structures',1);
+INSERT INTO "authtools_user" VALUES(6,'pbkdf2_sha256$36000$JrCBLGPSnFJS$dw99uTfsl5Zpjn20OMd9ff2qAr02hhOmAMVnG64ukpk=','2017-10-21 17:42:23.486885',0,'lebb@example.de',0,'2017-10-21 15:04:19.648450','Lebb & Person',1);
+INSERT INTO "authtools_user" VALUES(7,'pbkdf2_sha256$36000$pwGIuUy4iBFM$XLsP3T497rX/nZKA76Ov3uu79ywoUBrad5ferxUxCXM=','2018-05-12 13:14:36.366761',0,'amal@example.de',0,'2017-10-21 17:06:02.281809','Amal',1);
+CREATE TABLE "easy_thumbnails_source" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "storage_hash" varchar(40) NOT NULL, "name" varchar(255) NOT NULL, "modified" datetime NOT NULL);
+INSERT INTO "easy_thumbnails_source" VALUES(1,'f9bde26a1556cd667f742bd34ec7c55e','default_profile.png','2017-10-04 21:11:24.434662');
+INSERT INTO "easy_thumbnails_source" VALUES(2,'f9bde26a1556cd667f742bd34ec7c55e','default_profile.png.140x140_q85_crop.png','2017-10-04 21:41:54.337364');
+INSERT INTO "easy_thumbnails_source" VALUES(3,'f9bde26a1556cd667f742bd34ec7c55e','profile_pics/2017-10-04/354101.jpg','2017-10-04 22:06:14.977691');
+INSERT INTO "easy_thumbnails_source" VALUES(4,'f9bde26a1556cd667f742bd34ec7c55e','profile_pics/2017-10-21/braun.png','2017-10-21 14:41:30.190108');
+INSERT INTO "easy_thumbnails_source" VALUES(5,'f9bde26a1556cd667f742bd34ec7c55e','profile_pics/2017-10-21/pelikan.jpg','2017-10-21 14:57:13.861541');
+INSERT INTO "easy_thumbnails_source" VALUES(6,'f9bde26a1556cd667f742bd34ec7c55e','profile_pics/2017-10-21/lp-logo.jpg','2017-10-21 15:06:50.860846');
+CREATE TABLE "easy_thumbnails_thumbnail" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "storage_hash" varchar(40) NOT NULL, "name" varchar(255) NOT NULL, "modified" datetime NOT NULL, "source_id" integer NOT NULL REFERENCES "easy_thumbnails_source" ("id"));
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(1,'d26becbf46ac48eda79c7a39a13a02dd','default_profile.png.60x60_q85_crop.png','2017-10-04 21:11:24.459322',1);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(2,'d26becbf46ac48eda79c7a39a13a02dd','default_profile.png.140x140_q85_crop.png.140x140_q85_crop.png','2017-10-04 21:34:07.512166',2);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(3,'d26becbf46ac48eda79c7a39a13a02dd','default_profile.png.140x140_q85_crop.png.40x40_q85_crop.png','2017-10-04 21:36:17.289191',2);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(4,'d26becbf46ac48eda79c7a39a13a02dd','default_profile.png.140x140_q85_crop.png.140x140_q85.png','2017-10-04 21:39:38.006486',2);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(5,'d26becbf46ac48eda79c7a39a13a02dd','default_profile.png.140x140_q85_crop.png.50x50_q85.png','2017-10-04 21:41:54.355558',2);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(6,'d26becbf46ac48eda79c7a39a13a02dd','profile_pics/2017-10-04/354101.jpg.30x30_q85_crop.png','2017-10-04 22:06:14.888972',3);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(7,'d26becbf46ac48eda79c7a39a13a02dd','profile_pics/2017-10-04/354101.jpg.140x140_q85_crop.png','2017-10-04 22:06:14.993193',3);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(8,'d26becbf46ac48eda79c7a39a13a02dd','profile_pics/2017-10-21/braun.png.30x30_q85_crop.png','2017-10-21 14:41:30.149280',4);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(9,'d26becbf46ac48eda79c7a39a13a02dd','profile_pics/2017-10-21/braun.png.140x140_q85_crop.png','2017-10-21 14:41:30.208010',4);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(10,'d26becbf46ac48eda79c7a39a13a02dd','profile_pics/2017-10-21/pelikan.jpg.30x30_q85_crop.png','2017-10-21 14:57:13.755888',5);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(11,'d26becbf46ac48eda79c7a39a13a02dd','profile_pics/2017-10-21/pelikan.jpg.140x140_q85_crop.png','2017-10-21 14:57:13.882892',5);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(12,'d26becbf46ac48eda79c7a39a13a02dd','profile_pics/2017-10-21/lp-logo.jpg.30x30_q85_crop.png','2017-10-21 15:06:50.835160',6);
+INSERT INTO "easy_thumbnails_thumbnail" VALUES(13,'d26becbf46ac48eda79c7a39a13a02dd','profile_pics/2017-10-21/lp-logo.jpg.140x140_q85_crop.png','2017-10-21 15:06:50.875298',6);
+CREATE TABLE "easy_thumbnails_thumbnaildimensions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "thumbnail_id" integer NOT NULL UNIQUE REFERENCES "easy_thumbnails_thumbnail" ("id"), "width" integer unsigned NULL, "height" integer unsigned NULL);
+CREATE TABLE "query_category" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL);
+INSERT INTO "query_category" VALUES(1,'Accounting & Taxation');
+INSERT INTO "query_category" VALUES(2,'Audit');
+INSERT INTO "query_category" VALUES(3,'Real Estate');
+INSERT INTO "query_category" VALUES(4,'Construction');
+INSERT INTO "query_category" VALUES(5,'Finance');
+INSERT INTO "query_category" VALUES(6,'Health & Social');
+INSERT INTO "query_category" VALUES(7,'Trasport');
+INSERT INTO "query_category" VALUES(8,'Communication');
+INSERT INTO "query_category" VALUES(9,'Information Technology');
+INSERT INTO "query_category" VALUES(10,'Legal Service');
+INSERT INTO "query_category" VALUES(11,'Tourism & Travel');
+CREATE TABLE "query_query" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "subject" varchar(500) NOT NULL, "content" text NOT NULL, "creation_date" datetime NOT NULL, "category_id" integer NOT NULL REFERENCES "query_category" ("id"), "user_id" integer NOT NULL REFERENCES "authtools_user" ("id"));
+INSERT INTO "query_query" VALUES(15,'Structural Construction Service','Braun Architecture & Co. requires structural construction services regarding the design of several steel carport and bikeport for residential and public buildings.
+
+1) Structural Report for the local authority.
+2) Construction Detailing Drawing for construction company on site.
+3) In attachment: the Architectural Drawings, original document and contractor proposal.
+4) Please give your offer just for one steel project in order to understand the timing, costs and optimize the entire construction site.
+
+Deadline: 1st December 2017; 8:40pm (Berlin Time)
+
+Contact Ref: 
+Commercial Director Mr. Gauss Carl F.
+email: CFG@BraunArch.com
+Tel: 0123 23423243','2017-10-21 14:53:19.655690',4,4);
+INSERT INTO "query_query" VALUES(17,'Fix Computer','I need help to fix my laptop. Can somebody provide this service?','2017-10-21 17:13:52.941819',9,7);
+CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL);
+INSERT INTO "django_session" VALUES('zgbuej11ukt8rypk2acuuecraidhqi1v','NzRmMTBkMmEyZGRiNTEwMzA4YjM2OWJlZTJhNDBlN2Y3NTllYWE1Zjp7Il9hdXRoX3VzZXJfaGFzaCI6ImFmMDM4YzYxYTM3ODM4MTFlMmYwYzhkYjI2ZWYxZTU2NDA0ZDhjZjQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2017-08-19 19:26:29.988827');
+INSERT INTO "django_session" VALUES('y0bn0mzgktbpka7wnsoarx2ez1803uwm','NzBlMmRkY2U3ODIwNTNmOTU2YzMxMGY2NzhjZTg3YTg2ZWE2MWFlZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWYwMzhjNjFhMzc4MzgxMWUyZjBjOGRiMjZlZjFlNTY0MDRkOGNmNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2017-08-20 17:42:07.490524');
+INSERT INTO "django_session" VALUES('j9uajihs7g55qpvh27deq6sf4hk2t8tp','MzQyNzJmMGEyYTkwYTQzNDkwZmMwODlmM2MzNjgxZjJhZjc3YjVmMDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-08-20 19:12:32.186989');
+INSERT INTO "django_session" VALUES('3qks0dtgjxaaaxdk2403egtlimekfuxe','ZGMwODc4NjhmN2U2MjA3NmRhODIyZjQ3NDFiZWNkNjU4Zjk0MzA3YTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-08-31 19:13:01.288380');
+INSERT INTO "django_session" VALUES('ywqtkiyhomqwyhgsnudmjpc9gznuee9u','Mzg2ZDg2ODIyMGNlYzM1MWUyZGMzYzAyMzc1ZTg2ZjhhNGRlMjZmZjp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI4YjJhMmM0M2FkMjIyNTliNDg1NGQ1ZTY2NzkwYWE3NWIyN2NjZTAyIn0=','2017-09-02 14:36:11.041431');
+INSERT INTO "django_session" VALUES('46gzsgjnxmllcfl8ct1g0k95bza2ggsp','ZGMwODc4NjhmN2U2MjA3NmRhODIyZjQ3NDFiZWNkNjU4Zjk0MzA3YTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-09-02 19:59:12.285086');
+INSERT INTO "django_session" VALUES('gmr6pymb4ozopn76dyd0aonrkvynbl8r','ZGMwODc4NjhmN2U2MjA3NmRhODIyZjQ3NDFiZWNkNjU4Zjk0MzA3YTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-09-02 20:02:29.659480');
+INSERT INTO "django_session" VALUES('34hdb7325hbsmwsy2orlc359e1ur5tbb','MzQyNzJmMGEyYTkwYTQzNDkwZmMwODlmM2MzNjgxZjJhZjc3YjVmMDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-09-02 20:33:16.680502');
+INSERT INTO "django_session" VALUES('xw3tvky3nzhp3hdvvzrhgpoz8tfio6h3','MzQyNzJmMGEyYTkwYTQzNDkwZmMwODlmM2MzNjgxZjJhZjc3YjVmMDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-09-02 20:38:21.292841');
+INSERT INTO "django_session" VALUES('hhy1vujyl1sbe87xbeicmadaiz2fvsc2','OWQ5NDc5NjM0ZmQ1MDNiNGFkZGEzZmNiOTcxYTc4YzhkZjVmNmQ4NTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWYwMzhjNjFhMzc4MzgxMWUyZjBjOGRiMjZlZjFlNTY0MDRkOGNmNCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-09-02 21:41:52.037205');
+INSERT INTO "django_session" VALUES('aukdjicn6h48c9ranfm5dunrmjq546eb','MWY5M2I2NDRiNTlmNDA5ZGVhODU2NzZiNWFiMDQyNWMxOGYwMTE4NDp7Il9hdXRoX3VzZXJfaGFzaCI6ImFmMDM4YzYxYTM3ODM4MTFlMmYwYzhkYjI2ZWYxZTU2NDA0ZDhjZjQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-09-04 21:20:29.091377');
+INSERT INTO "django_session" VALUES('cijgoyft6h8s8oe468dysxz99yh5pbiu','ZGMwODc4NjhmN2U2MjA3NmRhODIyZjQ3NDFiZWNkNjU4Zjk0MzA3YTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-09-05 21:08:56.200989');
+INSERT INTO "django_session" VALUES('bqrt798mqjg9674reqvak2wmj3y304qv','MWY5M2I2NDRiNTlmNDA5ZGVhODU2NzZiNWFiMDQyNWMxOGYwMTE4NDp7Il9hdXRoX3VzZXJfaGFzaCI6ImFmMDM4YzYxYTM3ODM4MTFlMmYwYzhkYjI2ZWYxZTU2NDA0ZDhjZjQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-09-12 19:47:12.808505');
+INSERT INTO "django_session" VALUES('zd51b84exlxtcg3hs5zoqa9c46bd0kve','YTdmZjM1ZWFiOTRjMGE4NTg4MDQ5MDgyNWJjN2FhZTUyNzE4MDA3Yjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiOGIyYTJjNDNhZDIyMjU5YjQ4NTRkNWU2Njc5MGFhNzViMjdjY2UwMiIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2017-09-18 22:49:35.573257');
+INSERT INTO "django_session" VALUES('yohfydtyfk0qzr9dnejk3l0pjyrko08v','NzBlMmRkY2U3ODIwNTNmOTU2YzMxMGY2NzhjZTg3YTg2ZWE2MWFlZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWYwMzhjNjFhMzc4MzgxMWUyZjBjOGRiMjZlZjFlNTY0MDRkOGNmNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2017-09-19 21:53:44.469852');
+INSERT INTO "django_session" VALUES('hnz2414qty6xkm3rlwbip5s6h2sgpcqa','MzQyNzJmMGEyYTkwYTQzNDkwZmMwODlmM2MzNjgxZjJhZjc3YjVmMDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-09-20 22:23:54.439186');
+INSERT INTO "django_session" VALUES('7j302y67buj3nsawyx15zq9lkc2jmv0o','NzRmMTBkMmEyZGRiNTEwMzA4YjM2OWJlZTJhNDBlN2Y3NTllYWE1Zjp7Il9hdXRoX3VzZXJfaGFzaCI6ImFmMDM4YzYxYTM3ODM4MTFlMmYwYzhkYjI2ZWYxZTU2NDA0ZDhjZjQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2017-09-26 23:49:47.699575');
+INSERT INTO "django_session" VALUES('6paeo5gurtr2o1ewloypigyrfh1b08l7','MWY5M2I2NDRiNTlmNDA5ZGVhODU2NzZiNWFiMDQyNWMxOGYwMTE4NDp7Il9hdXRoX3VzZXJfaGFzaCI6ImFmMDM4YzYxYTM3ODM4MTFlMmYwYzhkYjI2ZWYxZTU2NDA0ZDhjZjQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-09-30 12:39:37.029033');
+INSERT INTO "django_session" VALUES('ksfxopu0rfxuml4iq1i08986kqlggt7q','NzBlMmRkY2U3ODIwNTNmOTU2YzMxMGY2NzhjZTg3YTg2ZWE2MWFlZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWYwMzhjNjFhMzc4MzgxMWUyZjBjOGRiMjZlZjFlNTY0MDRkOGNmNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2017-09-30 15:13:58.251505');
+INSERT INTO "django_session" VALUES('qll8y69ilvg6ekh4rz0bt43riotiolvf','OWQ5NDc5NjM0ZmQ1MDNiNGFkZGEzZmNiOTcxYTc4YzhkZjVmNmQ4NTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWYwMzhjNjFhMzc4MzgxMWUyZjBjOGRiMjZlZjFlNTY0MDRkOGNmNCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-10-18 22:22:50.008334');
+INSERT INTO "django_session" VALUES('zkavtuz5mkvl14ctlop1uqsk50caikk5','MzQyNzJmMGEyYTkwYTQzNDkwZmMwODlmM2MzNjgxZjJhZjc3YjVmMDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiJhZjAzOGM2MWEzNzgzODExZTJmMGM4ZGIyNmVmMWU1NjQwNGQ4Y2Y0In0=','2017-10-20 21:01:29.377680');
+INSERT INTO "django_session" VALUES('nmgdoxgbdrkhdevywyia9i2ry053rmoq','NTAwYmQxODQzYmYxMzc5MTE2MjZlYTkyNWE1ZGY2Y2IyNzhkNTc5ZTp7Il9hdXRoX3VzZXJfaGFzaCI6Ijc5YWM5MzU5M2M2MWEwZWQwMzk4MTAwOTFkMThlMjE5NGYyYzNiYzQiLCJfYXV0aF91c2VyX2lkIjoiNiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2017-11-04 17:42:23.499224');
+INSERT INTO "django_session" VALUES('0akootpmrm0uwxvc93a63kim4l6d1238','YTZlOGUwN2FiNjYwM2MxYWE3ZTVhZGE0OTdkNTBhYjM5MTUzOTAxMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjI5NWZkMDE2MGMzNWYzY2UwOWIzZmRiYzFlZmQzOWM3NzcyNjdhNmIiLCJfYXV0aF91c2VyX2lkIjoiNyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2018-05-26 13:14:36.381743');
+CREATE TABLE "star_ratings_rating" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "count" integer unsigned NOT NULL, "total" integer unsigned NOT NULL, "average" decimal NOT NULL, "object_id" integer unsigned NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id"));
+INSERT INTO "star_ratings_rating" VALUES(6,0,0,0,2,6);
+INSERT INTO "star_ratings_rating" VALUES(7,1,3,3,4,6);
+INSERT INTO "star_ratings_rating" VALUES(8,0,0,0,5,6);
+INSERT INTO "star_ratings_rating" VALUES(9,0,0,0,6,6);
+INSERT INTO "star_ratings_rating" VALUES(10,0,0,0,7,6);
+CREATE TABLE "star_ratings_userrating" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "created" datetime NOT NULL, "modified" datetime NOT NULL, "ip" char(39) NULL, "score" smallint unsigned NOT NULL, "rating_id" integer NOT NULL REFERENCES "star_ratings_rating" ("id"), "user_id" integer NULL REFERENCES "authtools_user" ("id"));
+INSERT INTO "star_ratings_userrating" VALUES(7,'2017-10-21 16:19:58.848255','2017-10-21 16:19:58.849471','127.0.0.1',3,7,5);
+CREATE TABLE "offer_offer" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "creation_date" datetime NOT NULL, "content" text NOT NULL, "query_id" integer NOT NULL REFERENCES "query_query" ("id"), "user_id" integer NOT NULL REFERENCES "authtools_user" ("id"), "accepted" bool NOT NULL);
+INSERT INTO "offer_offer" VALUES(8,'2017-10-21 15:02:55.801024','Dear Mr Gauss Carl F.,
+
+Considering the Architectural Drawings and in order to optimize the entire construction process, we offer the following solution:
+ 
+Step1: Complete Structural Report with drawing details for several cases of steel small construction (~ 20 working hours)
+
+Step2: Small report, according to the complete structure report, at each time this type of construction is required. (~ 5 working hours)
+
+The price for 1 hour work  = 95 €
+
+Look forwad to hearing from you soon.
+
+Best Regards,
+Jeff Bubble
+Associate Director
+Tel: +49 23423411
+email: jeff.bubble@pelikan.com',15,5,1);
+INSERT INTO "offer_offer" VALUES(9,'2017-10-21 15:11:34.818181','Dear Mr. Geuss,
+
+In response to you request No. 5482, after a proper analysis of your document and consideting the purpose of the project, we offer a systematic still production and structural analysis for 980 € for each carport or bikeport structural report. We are able to deliver one report per day. 
+
+I kindly invite you to chaffering to fix and define all terms.
+
+Sincerely yours,
+
+John Lama,
+Technical Director,
+Tel: 89 454564
+Email: john.l@lp.com',15,6,0);
+INSERT INTO "offer_offer" VALUES(10,'2017-10-21 17:17:20.631653','Hey Braun,
+
+I can offer you!',15,7,0);
+CREATE TABLE "profiles_profile" ("user_id" integer NOT NULL PRIMARY KEY REFERENCES "authtools_user" ("id"), "slug" char(32) NOT NULL, "picture" varchar(100) NULL, "email_verified" bool NOT NULL, "bio" text NULL);
+INSERT INTO "profiles_profile" VALUES(2,'6f025361fae240a09a6eb494792b61ef','profile_pics/2017-10-04/354101.jpg',0,NULL);
+INSERT INTO "profiles_profile" VALUES(4,'3223190bd616474d9f776987f796f1b3','profile_pics/2017-10-21/braun.png',0,'Address: Jägerstraße 5, Berlin
+
+Tel: +49 65412134
+
+Email: contact@braun.de
+
+Webstite: braunarch.de');
+INSERT INTO "profiles_profile" VALUES(5,'a16810ba3c58432b8fc64f7f18d0e8cf','profile_pics/2017-10-21/pelikan.jpg',0,'Address: Köningsplatz, 8 München
+
+Website: pelikan-structures.com
+
+Tel: 0234/786893');
+INSERT INTO "profiles_profile" VALUES(6,'f697b74ca6f84f5d984583c163a68705','profile_pics/2017-10-21/lp-logo.jpg',0,'Address: Wilton Road, 27 London 
+
+Tel: 981 231237
+
+Email: contact@lebb&person.com
+
+Website: lebb&person.de');
+INSERT INTO "profiles_profile" VALUES(7,'c35acd61a8134d13abc7ea18d1def60e','',0,NULL);
+DELETE FROM sqlite_sequence;
+INSERT INTO "sqlite_sequence" VALUES('django_migrations',26);
+INSERT INTO "sqlite_sequence" VALUES('django_admin_log',18);
+INSERT INTO "sqlite_sequence" VALUES('django_content_type',15);
+INSERT INTO "sqlite_sequence" VALUES('auth_permission',45);
+INSERT INTO "sqlite_sequence" VALUES('authtools_user',7);
+INSERT INTO "sqlite_sequence" VALUES('query_category',11);
+INSERT INTO "sqlite_sequence" VALUES('query_query',17);
+INSERT INTO "sqlite_sequence" VALUES('star_ratings_userrating',7);
+INSERT INTO "sqlite_sequence" VALUES('star_ratings_rating',10);
+INSERT INTO "sqlite_sequence" VALUES('easy_thumbnails_source',6);
+INSERT INTO "sqlite_sequence" VALUES('easy_thumbnails_thumbnail',13);
+INSERT INTO "sqlite_sequence" VALUES('offer_offer',10);
+CREATE UNIQUE INDEX "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" ON "auth_group_permissions" ("group_id", "permission_id");
+CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id");
+CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id");
+CREATE UNIQUE INDEX "authtools_user_groups_user_id_group_id_a8658824_uniq" ON "authtools_user_groups" ("user_id", "group_id");
+CREATE INDEX "authtools_user_groups_user_id_c1c2c51f" ON "authtools_user_groups" ("user_id");
+CREATE INDEX "authtools_user_groups_group_id_fdf65e59" ON "authtools_user_groups" ("group_id");
+CREATE UNIQUE INDEX "authtools_user_user_permissions_user_id_permission_id_3e9e8ba9_uniq" ON "authtools_user_user_permissions" ("user_id", "permission_id");
+CREATE INDEX "authtools_user_user_permissions_user_id_d172ce6b" ON "authtools_user_user_permissions" ("user_id");
+CREATE INDEX "authtools_user_user_permissions_permission_id_039bf6fe" ON "authtools_user_user_permissions" ("permission_id");
+CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id");
+CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id");
+CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model");
+CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename");
+CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id");
+CREATE UNIQUE INDEX "easy_thumbnails_thumbnail_storage_hash_name_source_id_fb375270_uniq" ON "easy_thumbnails_thumbnail" ("storage_hash", "name", "source_id");
+CREATE UNIQUE INDEX "easy_thumbnails_source_storage_hash_name_481ce32d_uniq" ON "easy_thumbnails_source" ("storage_hash", "name");
+CREATE INDEX "easy_thumbnails_source_storage_hash_946cbcc9" ON "easy_thumbnails_source" ("storage_hash");
+CREATE INDEX "easy_thumbnails_source_name_5fe0edc6" ON "easy_thumbnails_source" ("name");
+CREATE INDEX "easy_thumbnails_thumbnail_storage_hash_f1435f49" ON "easy_thumbnails_thumbnail" ("storage_hash");
+CREATE INDEX "easy_thumbnails_thumbnail_name_b5882c31" ON "easy_thumbnails_thumbnail" ("name");
+CREATE INDEX "easy_thumbnails_thumbnail_source_id_5b57bc77" ON "easy_thumbnails_thumbnail" ("source_id");
+CREATE INDEX "query_query_category_id_a3814de4" ON "query_query" ("category_id");
+CREATE INDEX "query_query_user_id_d1e76fdd" ON "query_query" ("user_id");
+CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date");
+CREATE UNIQUE INDEX "star_ratings_rating_content_type_id_object_id_f170c88b_uniq" ON "star_ratings_rating" ("content_type_id", "object_id");
+CREATE INDEX "star_ratings_rating_content_type_id_176abacc" ON "star_ratings_rating" ("content_type_id");
+CREATE INDEX "star_ratings_userrating_rating_id_e7ac9370" ON "star_ratings_userrating" ("rating_id");
+CREATE INDEX "star_ratings_userrating_user_id_33d5d349" ON "star_ratings_userrating" ("user_id");
+CREATE UNIQUE INDEX "star_ratings_userrating_user_id_rating_id_25ba0a69_uniq" ON "star_ratings_userrating" ("user_id", "rating_id");
+CREATE INDEX "offer_offer_query_id_37ab08a5" ON "offer_offer" ("query_id");
+CREATE INDEX "offer_offer_user_id_8996085c" ON "offer_offer" ("user_id");
+COMMIT;
