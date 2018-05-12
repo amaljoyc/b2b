@@ -64,6 +64,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'dbbackup',
     'django.contrib.auth',
     'django_admin_bootstrapped',
     'django.contrib.admin',
