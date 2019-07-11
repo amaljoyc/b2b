@@ -1,8 +1,12 @@
 
 
-# chafferr
+# b2b
 
-chafferr is built with [Python][0] using the [Django Web Framework][1].
+b2b is built with [Python][0] using the [Django Web Framework][1].
+
+## Demo
+
+You can find a video walk-through of the project under the directory - [demo](demo) 
 
 ## Installation
 
@@ -29,10 +33,3 @@ To run the project, go to src,
 To go to db, go under src and issue,
 
     python manage.py dbshell
-
-### Detailed instructions
-
-Take a look at the docs for more information.
-
-[0]: https://www.python.org/
-[1]: https://www.djangoproject.com/
