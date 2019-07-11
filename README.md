@@ -2,7 +2,7 @@
 
 # b2b
 
-b2b is built with [Python][0] using the [Django Web Framework][1].
+b2b is built with Python using the Django Web Framework.
 
 ## Demo
 
@@ -12,8 +12,7 @@ You can find a video walk-through of the project under the directory - [demo](de
 
 ### Quick start
 
-To set up a development environment quickly, first install Python 3. It
-comes with virtualenv built-in. So create a virtual env by:
+To set up a development environment quickly, first install Python 3. It comes with virtualenv built-in. So create a virtual env by:
 
     1. `$ python3 -m venv chafferr`
     2. `$ . b2b/bin/activate`
